@@ -12,14 +12,21 @@ const data = window.data;
  **************/
 
 function updateCoffeeView(coffeeQty) {
+
   // Create a reference to the element who's ID is 'coffee_counter'
+  const coffeeCounter = document.getElementById('coffee_counter')
+
   // Set the innerText of that element to be the coffeeQty passed into this function
+  coffeeCounter.innerText = coffeeQty
 }
 
 function clickCoffee(data) {
   // Increment the data object's (passed into this function) coffee property by one
+  data.coffee++;
   // call the updateCoffeeView function and pass it the newly updated data.coffee property
+  updateCoffeeView(data.coffee);
   // call the renderProducers function and pass it the data object
+  renderProducers(data);
 }
 
 /**************
@@ -28,14 +35,18 @@ function clickCoffee(data) {
 
 function unlockProducers(producers, coffeeCount) {
   // loop through the producers array passed into the function
-  // for each producer, if the coffeeCount (passed in) is greater than or equal
-  // to half the producer's price, reassign the producers.unlocked property to equal true
+    // for each producer, if the coffeeCount (passed in) is greater than or equal
+    // to half the producer's price, reassign the producers.unlocked property to equal true
+    for(i = 0; i < producers.length; i++) {
+      if(coffeeCount >= producer.price/2)
+  }
 }
 
 function getUnlockedProducers(data) {
   // use the Array.prototype.filter() method
   // filter through the data.producers property, and return an array with only the producers whose
   // unlocked property is true
+
 }
 
 // You do not need to edit this function
