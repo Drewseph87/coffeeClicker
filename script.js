@@ -2,7 +2,7 @@
 const data = window.data;
 
 // Make your References to the two DOM nodes
-
+const 
 // Create a reference to the element who's ID is 'big_coffee and call it bigCoffee
 
 // Create a reference to the element who's ID is 'producer_container' and call it producerContainer
@@ -34,11 +34,13 @@ function clickCoffee(data) {
  **************/
 
 function unlockProducers(producers, coffeeCount) {
-  // loop through the producers array passed into the function
-    // for each producer, if the coffeeCount (passed in) is greater than or equal
-    // to half the producer's price, reassign the producers.unlocked property to equal true
-    for(i = 0; i < producers.length; i++) {
-      if(coffeeCount >= producer.price/2)
+  for(i = 0; i < producers.length; i++) {
+    // loop through the producers array passed into the function
+    if(coffeeCount >= producer.price/2){
+      // for each producer, if the coffeeCount (passed in) is greater than or equal
+      // to half the producer's price, reassign the producers.unlocked property to equal true
+      producers.unlocked = true;
+    }
   }
 }
 
