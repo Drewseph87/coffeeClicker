@@ -3,7 +3,7 @@ const data = window.data;
 
 // Make your References to the two DOM nodes
 // Create a reference to the element who's ID is 'big_coffee and call it bigCoffee
-const bigCoffee = document.getElementById('big_cofffee');
+const bigCoffee = document.getElementById('big_coffee');
 // Create a reference to the element who's ID is 'producer_container' and call it producerContainer
 const producerContainer = document.getElementById('producer_container');
 /**************
@@ -34,9 +34,9 @@ function clickCoffee(data) {
 
 function unlockProducers(producers, coffeeCount) {
   // loop through the producers array passed into the function
-  for(i = 0; i < producers.length; i++) {
+  for(let i = 0; i < producers.length; i++) {
     // for each producer, if the coffeeCount (passed in) is greater than or equal
-    if(coffeeCount >= producers[i].price /2){ // go into values to find the objects and divide by two. Parenthesis to make sure this occurs first like math before comparison to coffeeCount
+    if(coffeeCount >= producers[i].price / 2){ // go into values to find the objects and divide by two. Parenthesis to make sure this occurs first like math before comparison to coffeeCount
       // to half the producer's price, reassign the producers.unlocked property to equal true
       producers[i].unlocked = true;
     }
@@ -49,10 +49,10 @@ function getUnlockedProducers(data) {
   // unlocked property is true
 const unlocky = (producerObj) => {
   return producerObj.unlocked === true;
-}
+};
 return data.producers.filter(unlocky);
 }
-// (producerObj) => {return producerObj.unlocked} -- Shorthanded version to creating a function inside .filter field similar to what's above. Wrote both out to understand...
+// (producerObj) => producerObj.unlocked === true -- Shorthanded version to creating a function inside .filter field similar to what's above. Wrote both out to understand...
 
 // You do not need to edit this function
 function makeDisplayNameFromId(id) {
@@ -92,8 +92,7 @@ function deleteAllChildNodes(parent) {
 
 function renderProducers(data) {
   // call the unlockProducers function and pass it data.producers and data.coffee
-  unlockProducers(data.producers, data.coffee);
-
+unlockProducers(data.producers, data.coffee);
   // make a reference to the DOM element whose ID is producer_container
 const producerContainer = document.getElementById('producer_container');
   // call the deleteAllChildNodes function and pass it the above producerContainer element
@@ -172,16 +171,14 @@ renderProducers(data);
 // Event Listeners
 // add a 'click' event listener to the bigCoffee element (that you referenced above)
 // the event listener should call the clickCoffee function, and pass in the global data object
-bigCoffee.addEventListener('click', function(){
+bigCoffee.addEventListener('click', () => {
   clickCoffee(data);
 });
 
-
 // add a 'click' event listener to the element (referenced at the top of the file)
 // the event listener should call the buyButtonClick function and pass it the event, and the global data object
-producerContainer.addEventListener('click', (event) => { 
-  const clickTarget = event.target;
-  if (clickTarget.tagName === "BUTTON") { 
-  buyButtonClick(event, data)});
+producerContainer.addEventListener('click', (event)=> {
+  buyButtonClick(event, data)
+});
 // You do not need to edit this last line. This simple runs your tick function every 1000ms, or 1s
 setInterval(() => tick(data), 1000);
